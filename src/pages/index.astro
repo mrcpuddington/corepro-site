@@ -6,111 +6,206 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   title="CorePro | Coming Soon"
   description="CorePro is building a smarter training experience. Launching soon."
 >
-  <main class="wrap">
-    <section class="card">
-      <img src="/corepro-logo.png" alt="CorePro logo" class="logo" />
-      <p class="badge">Coming Soon</p>
-      <h1>Train with clarity.<br />Launch is close.</h1>
-      <p class="lead">
-        CorePro is a focused workout companion for tracking sessions, building progress, and staying consistent.
-      </p>
-      <div class="chips">
-        <span>Session Logging</span>
-        <span>Progress Insights</span>
-        <span>Built for Lifters</span>
+  <main class="page">
+    <header class="nav">
+      <div class="brand">
+        <img src="/corepro-logo.png" alt="CorePro logo" class="mark" />
+        <span>CorePro</span>
+      </div>
+      <span class="status">Coming soon</span>
+    </header>
+
+    <section class="hero">
+      <div class="copy">
+        <h1>
+          Log workouts<br />
+          <span>Get stronger</span><br />
+          Stay consistent
+        </h1>
+        <p class="lead">
+          CorePro is a clean training companion for lifters who want fast logging, clear progress, and zero clutter.
+        </p>
+        <p class="meta">Early access opens soon.</p>
+      </div>
+
+      <div class="visual">
+        <div class="device-stack">
+          <div class="phone phone--back"></div>
+          <div class="phone phone--front">
+            <div class="screen">
+              <div class="pill"></div>
+              <div class="row"></div>
+              <div class="row short"></div>
+              <div class="row"></div>
+              <div class="row"></div>
+              <div class="row short"></div>
+              <div class="cta"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 </BaseLayout>
 
 <style>
-  .wrap {
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    padding: 24px;
+  .page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 28px 96px;
   }
 
-  .card {
-    width: min(760px, 100%);
-    border-radius: 28px;
-    padding: clamp(28px, 5vw, 52px);
-    background: color-mix(in oklab, var(--card) 90%, white 10%);
-    border: 1px solid #efd7ca;
-    box-shadow:
-      0 28px 70px rgb(32 15 2 / 0.12),
-      0 3px 0 rgb(255 255 255 / 0.8) inset;
-    animation: rise 600ms ease-out both;
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 0 18px;
+    border-bottom: 1px solid var(--line);
   }
 
-  .logo {
-    width: clamp(88px, 14vw, 124px);
-    height: auto;
-    border-radius: 22px;
-    display: block;
-    box-shadow: 0 14px 35px rgb(30 10 2 / 0.16);
-    animation: float 5s ease-in-out infinite;
-  }
-
-  .badge {
-    width: fit-content;
-    margin: 18px 0 10px;
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    font-size: 1.05rem;
+  }
+
+  .mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    box-shadow: 0 8px 22px rgb(30 10 2 / 0.1);
+  }
+
+  .status {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--brand);
-    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+    padding-top: clamp(36px, 8vw, 96px);
   }
 
   h1 {
     margin: 0;
-    line-height: 1.03;
+    line-height: 1.02;
     font-family: "Syne", "Trebuchet MS", sans-serif;
-    font-size: clamp(2rem, 7.2vw, 4.35rem);
+    font-size: clamp(2.6rem, 7.5vw, 5rem);
+  }
+
+  h1 span {
+    color: var(--brand);
   }
 
   .lead {
     margin: 18px 0 0;
+    font-size: clamp(1.02rem, 2.2vw, 1.28rem);
     color: var(--muted);
-    font-size: clamp(1rem, 2.5vw, 1.24rem);
-    max-width: 53ch;
-    line-height: 1.45;
+    max-width: 42ch;
+    line-height: 1.5;
   }
 
-  .chips {
-    margin-top: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .chips span {
-    padding: 9px 12px;
-    border-radius: 999px;
-    background: #fff;
-    border: 1px solid #e9d8cb;
-    font-size: 0.86rem;
+  .meta {
+    margin: 20px 0 0;
     font-weight: 600;
+    color: #2a2a2a;
   }
 
-  @keyframes rise {
-    from {
-      transform: translateY(16px);
-      opacity: 0;
+  .visual {
+    display: grid;
+    place-items: center;
+  }
+
+  .device-stack {
+    position: relative;
+    width: clamp(220px, 32vw, 340px);
+    height: clamp(420px, 64vw, 640px);
+  }
+
+  .phone {
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    border: 2px solid #e6e6e6;
+    background: #ffffff;
+    box-shadow: 0 24px 50px rgb(0 0 0 / 0.12);
+  }
+
+  .phone--back {
+    transform: translate(36px, -20px);
+    opacity: 0.25;
+  }
+
+  .phone--front {
+    z-index: 2;
+  }
+
+  .screen {
+    position: absolute;
+    inset: 16px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #f7f7f7 0%, #ffffff 40%);
+    padding: 18px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .pill {
+    height: 12px;
+    width: 60px;
+    border-radius: 999px;
+    background: #dedede;
+  }
+
+  .row {
+    height: 14px;
+    border-radius: 999px;
+    background: #ececec;
+  }
+
+  .row.short {
+    width: 70%;
+  }
+
+  .cta {
+    height: 40px;
+    border-radius: 12px;
+    background: var(--brand);
+    margin-top: auto;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
     }
-    to {
-      transform: translateY(0);
-      opacity: 1;
+
+    .visual {
+      order: -1;
+    }
+
+    .device-stack {
+      width: clamp(200px, 70vw, 320px);
+      height: clamp(380px, 92vw, 560px);
+      margin-bottom: 24px;
     }
   }
 
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
+  @media (max-width: 600px) {
+    .nav {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
     }
-    50% {
-      transform: translateY(-6px);
+
+    .status {
+      letter-spacing: 0.16em;
     }
   }
 </style>
