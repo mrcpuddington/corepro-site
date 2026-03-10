@@ -34,8 +34,12 @@ jobs:
 
       - name: Add host to known_hosts
         run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -p ${{ secrets.HOSTINGER_PORT }} ${{ secrets.HOSTINGER_HOST }} >> ~/.ssh/known_hosts
+          install -d -m 700 "$HOME/.ssh"
+          if [ -n "${{ secrets.HOSTINGER_KNOWN_HOSTS }}" ]; then
+            echo "${{ secrets.HOSTINGER_KNOWN_HOSTS }}" >> "$HOME/.ssh/known_hosts"
+          else
+            ssh-keyscan -H -p ${{ secrets.HOSTINGER_PORT }} ${{ secrets.HOSTINGER_HOST }} >> "$HOME/.ssh/known_hosts"
+          fi
 
       - name: Deploy via rsync
         run: |
