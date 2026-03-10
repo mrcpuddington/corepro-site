@@ -1,0 +1,55 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "CorePro | Coming Soon",
+  description = "CorePro is launching soon."
+} = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --brand: #e8593a;
+    --ink: #191919;
+    --muted: #585858;
+    --paper: #f7f5f2;
+    --card: #fffcf8;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Space Grotesk", "Avenir Next", sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 12% 20%, #ffbaa8 0%, transparent 34%),
+      radial-gradient(circle at 90% 8%, #ffd6b7 0%, transparent 25%),
+      linear-gradient(130deg, #f7f5f2 0%, #fff3e7 45%, #f4f6fb 100%);
+  }
+</style>

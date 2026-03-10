@@ -1,0 +1,116 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="CorePro | Coming Soon"
+  description="CorePro is building a smarter training experience. Launching soon."
+>
+  <main class="wrap">
+    <section class="card">
+      <img src="/corepro-logo.png" alt="CorePro logo" class="logo" />
+      <p class="badge">Coming Soon</p>
+      <h1>Train with clarity.<br />Launch is close.</h1>
+      <p class="lead">
+        CorePro is a focused workout companion for tracking sessions, building progress, and staying consistent.
+      </p>
+      <div class="chips">
+        <span>Session Logging</span>
+        <span>Progress Insights</span>
+        <span>Built for Lifters</span>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .wrap {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+  }
+
+  .card {
+    width: min(760px, 100%);
+    border-radius: 28px;
+    padding: clamp(28px, 5vw, 52px);
+    background: color-mix(in oklab, var(--card) 90%, white 10%);
+    border: 1px solid #efd7ca;
+    box-shadow:
+      0 28px 70px rgb(32 15 2 / 0.12),
+      0 3px 0 rgb(255 255 255 / 0.8) inset;
+    animation: rise 600ms ease-out both;
+  }
+
+  .logo {
+    width: clamp(88px, 14vw, 124px);
+    height: auto;
+    border-radius: 22px;
+    display: block;
+    box-shadow: 0 14px 35px rgb(30 10 2 / 0.16);
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .badge {
+    width: fit-content;
+    margin: 18px 0 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand);
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    margin: 0;
+    line-height: 1.03;
+    font-family: "Syne", "Trebuchet MS", sans-serif;
+    font-size: clamp(2rem, 7.2vw, 4.35rem);
+  }
+
+  .lead {
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: clamp(1rem, 2.5vw, 1.24rem);
+    max-width: 53ch;
+    line-height: 1.45;
+  }
+
+  .chips {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .chips span {
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid #e9d8cb;
+    font-size: 0.86rem;
+    font-weight: 600;
+  }
+
+  @keyframes rise {
+    from {
+      transform: translateY(16px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+</style>
